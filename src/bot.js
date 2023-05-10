@@ -11,10 +11,10 @@ new Client({intents:
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.GuildMessageReactions,]
-    // ,partials: 
-    // [Partials.Message, 
-    // Partials.Channel,
-    // Partials.Reaction]
+    ,partials: 
+    [Partials.Message, 
+    Partials.Channel,
+    Partials.Reaction]
 })
 
 client.commands = new Collection()
