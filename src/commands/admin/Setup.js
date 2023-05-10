@@ -7,7 +7,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('setup')
 		.setDescription('初始化資料庫')
-        .PermissionFlagsBits(PermissionFlagsBits.Administrator),
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 	async execute(interaction,client) {
 		console.log(interaction.guild.id)
         let guildProfile = await Guild.findOne({guildId:interaction.guild.id})
