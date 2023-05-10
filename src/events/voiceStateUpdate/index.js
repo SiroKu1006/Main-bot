@@ -18,7 +18,7 @@ module.exports = {
         }
         var guildProfile = await Guild.findOne({guildId:guild_id})
         var VoiceLogChannel = guildProfile.guildVoiceStateLogChannel
-        if (typeof VoiceLogChannel == undefined||VoiceLogChannel == 'none') {
+        if (VoiceLogChannel == undefined||VoiceLogChannel == 'none'||VoiceLogChannel == null) {
             console.log(`VoiceLogChannel is undefined`)
             return;
         }
