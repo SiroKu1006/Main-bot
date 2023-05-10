@@ -19,7 +19,7 @@ module.exports = {
 			})
 			await guildProfile.save().catch(console.error)
 			await interaction.reply({
-				content: `Server Name: ${guildProfile.guildName}`
+				content: `初始化資料庫完成`
 			})
         }else{
 			let guildProfile = await Guild.findOne({guildId:interaction.guild.id})

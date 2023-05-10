@@ -40,18 +40,23 @@ module.exports = {
             const {selectMenus} = client
             const {customId} = interaction
             const menu = selectMenus.get(customId)
-            if(!menu){
-                return new Error(`There is no code for this menu.`)
-            }
-            try {
-
-                await menu.execute(interaction, client)
-            } catch (error) {
-                console.log(error)
+            if(menu != undefined){
+                console.log(`There is no code for this menu.`)
+                try {
+                    
+                    await menu.execute(interaction, client)
+                } catch (error) {
+                    console.log(error)
+                    await interaction.reply({
+                        content:`Something is wrong.`,
+                        ephemeral: true
+                    })
+                }
+            }else{
                 await interaction.reply({
-                    content:`Something is wrong.`,
+                    content:`customId is not defined or error.`,
                     ephemeral: true
-                })
+            })
             }
         }else if (interaction.type == InteractionType.ModalSubmit){
             const {modals} = client

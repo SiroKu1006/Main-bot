@@ -26,6 +26,14 @@ module.exports = (client) =>{
                     break
                 
                 default:
+                    try {
+                        for (const file of componentFiles) {
+                            const component = require(`../../components/${folder}/${file}`)
+                            modals.set(component.data.name,component )
+                        }
+                    } catch (error) {
+                        console.log(error)
+                    }
                     break;
             }
         }
