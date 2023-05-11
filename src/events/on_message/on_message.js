@@ -16,7 +16,7 @@ module.exports = {
         }else{
             prefix = 's!'
         }
-        let prefix = 's!'
+        prefix = 's!'
         if (interaction.content.startsWith(prefix)) {
             const args = interaction.content 
             .slice(prefix.length)
