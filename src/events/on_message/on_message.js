@@ -7,8 +7,8 @@ module.exports = {
     name: 'messageCreate',
     async execute(interaction){
         if(interaction.author.bot||interaction.guildId == null) return //判斷訊息來源是不是bot || 是否為DM
+        let guildProfile = await Guild.findOne({guildId:interaction.guildId})
         if(!guildProfile){
-            let guildProfile = await Guild.findOne({guildId:interaction.guildId})
             let prefix = guildProfile.guildPrefix
             if (typeof prefix == 'undefined') {
                 prefix = 's!'
