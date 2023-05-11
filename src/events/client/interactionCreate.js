@@ -41,7 +41,6 @@ module.exports = {
             const {customId} = interaction
             const menu = selectMenus.get(customId)
             if(menu != undefined){
-                console.log(`There is no code for this menu.`)
                 try {
                     
                     await menu.execute(interaction, client)
