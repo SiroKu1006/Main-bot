@@ -8,14 +8,15 @@ module.exports = {
     async execute(interaction){
         if(interaction.author.bot||interaction.guildId == null) return //判斷訊息來源是不是bot || 是否為DM
         let guildProfile = await Guild.findOne({guildId:interaction.guildId})
-        if(!guildProfile){
+        if(guildProfile){
             let prefix = guildProfile.guildPrefix
-            if (typeof prefix == 'undefined') {
+            if (!prefix) {
                 prefix = 's!'
             }
         }else{
             prefix = 's!'
         }
+        let prefix = 's!'
         if (interaction.content.startsWith(prefix)) {
             const args = interaction.content 
             .slice(prefix.length)
