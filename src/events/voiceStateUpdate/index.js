@@ -17,10 +17,10 @@ module.exports = {
             var action = 'move'
         }
         var guildProfile = await Guild.findOne({guildId:guild_id})
-        var VoiceLogChannel = guildProfile.guildVoiceStateLogChannel
-        if (VoiceLogChannel == undefined||VoiceLogChannel == 'none'||VoiceLogChannel == null) {
-            console.log(`VoiceLogChannel is undefined`)
-            return;
+        try {
+            var VoiceLogChannel = guildProfile.guildVoiceStateLogChannel
+        } catch (error) {
+            return
         }
         if (VoiceLogChannel != 'none') {
             var channel = client.channels.cache.get(VoiceLogChannel)
